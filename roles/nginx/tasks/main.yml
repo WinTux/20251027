@@ -1,0 +1,13 @@
+- name: Verificando que nginx esté en la versión más reciente
+  apt:
+    name: nginx
+    state: latest
+    update_cache: yes
+- name: Verificando que nginx se esté ejecutando
+  systemd:
+    enabled: yes
+    state: started
+    name: nginx
+- name: Mostrando un mensaje
+  debug:
+    msg: "Hola, soy un rol de nginx"
